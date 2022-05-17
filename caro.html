@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .caro-board {
+            font-size: 50px;
+            font-family: serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        button {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="caro-board"></div>
+    <button onclick="changeValue()">Change Value</button>
+    <script>
+        var board = document.querySelector('.caro-board')
+        var arr = []
+        for (i = 0; i < 5; i++){
+            arr[i] = [];
+            for (j = 0; j < 5; j++){
+                arr[i][j] = 0
+            }
+            board.innerHTML += arr[i].join("&nbsp;&nbsp;&nbsp;") + '<br>';
+        }
+
+        function changeValue(){
+            var positionX = +prompt("Nhập giá trị X: ")
+            var positionY = +prompt("Nhập giá trị Y: ")
+            if (positionX <= arr.length - 1 && positionY <= arr[positionX].length - 1){
+                arr[positionX][positionY] = 'x';
+                board.innerHTML = '';
+                for (i = 0; i < 5; i++){
+                    for (j = 0; j < 5; j++){
+                    }
+                board.innerHTML += arr[i].join("&nbsp;&nbsp;&nbsp;") + '<br>';
+                }
+            } else {
+                alert('Giá trị không tồn tại')
+            }
+        }
+    </script>
+</body>
+</html>
